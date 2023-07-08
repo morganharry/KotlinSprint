@@ -6,7 +6,7 @@ fun main() {
     println(numOfOrders)
     println(thxForOrder)
     var numOfEmployees = 2000
-    //println(numOfEmployees)
+    // println(numOfEmployees)
     numOfEmployees--
     println(numOfEmployees)
 }
