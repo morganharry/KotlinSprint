@@ -8,5 +8,5 @@ fun main() {
     val termDeposit = 20
 
     deposit = deposit * (1.0 + rateDeposit).pow(termDeposit)
-    println((deposit * 1000.0).roundToInt() / 1000.0)
+    println(String.format("%.3f", deposit))
 }
