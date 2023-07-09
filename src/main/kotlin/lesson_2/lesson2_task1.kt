@@ -7,7 +7,7 @@ fun main() {
     val gradePupil4 = 5.00
     val numOfGrade = 4
     val sumOfGrade = gradePupil1 + gradePupil2 + gradePupil3 + gradePupil4
-    val averageOfGrade = sumOfGrade/numOfGrade
+    val averageOfGrade = sumOfGrade / numOfGrade
 
-    println (averageOfGrade)
+    println(averageOfGrade)
 }
