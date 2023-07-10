@@ -2,9 +2,10 @@ package lesson_3
 
 fun main() {
     val move = "D2-D4;22"
-    val startMove = move.substring(0, 2)
-    val endMove = move.substring(3, 5)
-    val numMove = move.substring(6)
+    val listMoveNum = move.split("-", ";")
+    val startMove = listMoveNum.first()
+    val endMove = listMoveNum[1]
+    val numMove = listMoveNum.last()
 
     println("$startMove-$endMove;$numMove")
 }
