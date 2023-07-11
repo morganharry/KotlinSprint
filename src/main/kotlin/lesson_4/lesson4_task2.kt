@@ -5,18 +5,18 @@ fun main() {
     val maxWeightAverage = 100
     val maxVolumeAverage = 100
 
-    var weightСargo = 20
-    var volumeСargo = 80
+    var weightCargo = 20
+    var volumeCargo = 80
     println(
-        "Груз с весом ${weightСargo} кг и объемом ${volumeСargo} л соответствует категории 'Average': " +
-                "${(weightСargo > minWeightAverage && weightСargo <= maxWeightAverage && volumeСargo < maxVolumeAverage)}"
+        "Груз с весом ${weightCargo} кг и объемом ${volumeCargo} л соответствует категории 'Average': " +
+                "${weightCargo > minWeightAverage && weightCargo <= maxWeightAverage && volumeCargo < maxVolumeAverage}"
     )
 
-    weightСargo = 50
-    volumeСargo = 100
+    weightCargo = 50
+    volumeCargo = 100
     println(
-        "Груз с весом ${weightСargo} кг и объемом ${volumeСargo} л соответствует категории 'Average': " +
-                "${(weightСargo > minWeightAverage && weightСargo <= maxWeightAverage && volumeСargo < maxVolumeAverage)}"
+        "Груз с весом ${weightCargo} кг и объемом ${volumeCargo} л соответствует категории 'Average': " +
+                "${weightCargo > minWeightAverage && weightCargo <= maxWeightAverage && volumeCargo < maxVolumeAverage}"
     )
 }
 
