@@ -1,18 +1,18 @@
 package lesson_4
 
 fun main() {
-    val requiredSun = true
-    val requiredAwning = true
+    val requiredSunny = true
+    val requiredAwningOpen = true
     val requiredHumidity = 20
     val requiredSeason = "winter"
 
-    val nowSun = true
-    val nowAwning = true
+    val isSunny = true
+    val isAwningOpen = true
     val nowHumidity = 20
     val nowSeason = "winter"
 
     val check =
-        (nowSun == requiredSun && nowAwning == requiredAwning && nowHumidity == requiredHumidity && nowSeason == requiredSeason)
+        (isSunny == requiredSunny && isAwningOpen == requiredAwningOpen && nowHumidity == requiredHumidity && nowSeason == requiredSeason)
 
     println("Благоприятные ли условия сейчас для роста бобовых? $check")
 }
