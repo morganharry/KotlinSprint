@@ -3,8 +3,8 @@ package lesson_4
 const val TABLES: Int = 13
 
 fun main() {
-    val todayFreeTable = 0
-    val tomorrowFreeTable = 4
+    val todBookedTable = 13
+    val tomBookedTable = 9
 
-    println("Доступность столиков на сегодня: ${(todayFreeTable) > 0},\nДоступность столиков на завтра: ${tomorrowFreeTable > 0}")
+    println("Доступность столиков на сегодня: ${(todBookedTable) < TABLES},\nДоступность столиков на завтра: ${tomBookedTable < TABLES}")
 }
