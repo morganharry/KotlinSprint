@@ -1,5 +1,7 @@
 package lesson_4
 
+const val TABLES: Int = 13
+
 fun main() {
     val todayFreeTable = 0
     val tomorrowFreeTable = 4
