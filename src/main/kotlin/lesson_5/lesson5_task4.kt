@@ -23,7 +23,7 @@ fun main() {
     if (userLogin in users) {
         print("Password: ")
         val userPassword = readln()
-        if (users.get(userLogin) == userPassword) println(textSuccess)
+        if (users[userLogin] == userPassword) println(textSuccess)
         else println(textFail)
     } else println(textFail)
 }
