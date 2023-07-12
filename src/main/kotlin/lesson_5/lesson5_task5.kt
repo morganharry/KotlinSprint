@@ -1,18 +1,18 @@
 package lesson_5
 
-import java.util.*
+const val NUM_OF_WIN_NUM = 2
 
 fun main() {
     val listWin = mutableListOf<Int>()
-    while (listWin.size != 2) {
+
+    while (true) {
         val num = (1..100).random()
         if (!listWin.contains(num)) listWin.add(num)
+        if (listWin.size == NUM_OF_WIN_NUM) break
     }
 
-    val scanner = Scanner(System.`in`)
     print("Введите два числа от 1 до 100 через пробел: ")
-    val userNum1 = scanner.nextInt()
-    val userNum2 = scanner.nextInt()
+    val (userNum1, userNum2) = readln().split(" ").map { it.toInt() }
 
     when {
         listWin.contains(userNum1) && listWin.contains(userNum2) -> println("Поздравляем! Вы выиграли главный приз!")
