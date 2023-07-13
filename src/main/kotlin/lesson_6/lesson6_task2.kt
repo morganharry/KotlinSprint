@@ -5,10 +5,9 @@ fun main() {
     val timerSec = readln().toInt()
     var counter = 0
 
-    while (true) {
+    while (counter != timerSec) {
         Thread.sleep(1000)
         counter++
-        if (counter == timerSec) break
     }
     println("Прошло $timerSec секунд")
 }
