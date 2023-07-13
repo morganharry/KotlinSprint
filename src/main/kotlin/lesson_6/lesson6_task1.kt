@@ -17,15 +17,15 @@ fun main() {
     do {
         print("Введите логин для авторизации: ")
         val userLogin = readln()
-        if (userLogin in users) {
+        if (userLogin !in users) println("Извините, но такой пользователь не зарегистрирован. Попробуйте еще раз.")
+        else {
             do {
                 print("Введите пароль для авторизации: ")
                 val userPassword = readln()
-                if (users[userLogin] == userPassword) break
-                else println("Извините, но пароль неправильный. Попробуйте еще раз.")
-            } while (true)
-            break
-        } else println("Извините, но такой пользователь не зарегистрирован. Попробуйте еще раз.")
-    } while (true)
+                if (users[userLogin] != userPassword) println("Извините, но пароль неправильный. Попробуйте еще раз.")
+            } while (users[userLogin] != userPassword)
+        }
+    } while (userLogin !in users)
+
     println("Авторизация прошла успешно.")
 }
