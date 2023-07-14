@@ -1,7 +1,5 @@
 package lesson_7
 
-import kotlin.concurrent.thread
-
 fun main() {
     print("Введите количество секунд: ")
     val userSec = readln().toInt()
