@@ -1,6 +1,5 @@
 package lesson_7
 
-
 fun main() {
     var password = ""
     for (i in 1..6) {
