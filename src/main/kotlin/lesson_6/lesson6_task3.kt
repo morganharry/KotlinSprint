@@ -6,9 +6,9 @@ fun main() {
     var counter = 0
 
     while (counter != timerSec) {
+        println("Осталось секунд: ${timerSec - counter}")
         Thread.sleep(1000)
         counter++
-        if (counter != timerSec) println("Осталось секунд: ${timerSec - counter}")
     }
     println("Время вышло")
 }
