@@ -8,5 +8,5 @@ fun main() {
         println("Осталось секунд: $sec")
         Thread.sleep(1000)
     }
-    println("Время вышло")
+    println("Время вышло.")
 }
