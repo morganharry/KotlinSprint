@@ -13,6 +13,6 @@ fun main() {
         val userIngredientTo = readln()
         val numElement = ingredientsArray.indexOf(userIngredientFrom)
         ingredientsArray[numElement] = userIngredientTo
-        println("Список ингредиентов: ${ingredientsArray.joinToString(",")}.")
+        println("Готово! Вы сохранили следующий список: ${ingredientsArray.joinToString(",")}.")
     }
 }
