@@ -1,12 +1,13 @@
 package lesson_7
 
 fun main() {
-    val char1 = (('0'..'9') + ('a'..'z')).random()
-    val char2 = (('0'..'9') + ('a'..'z')).random()
-    val char3 = (('0'..'9') + ('a'..'z')).random()
-    val char4 = (('0'..'9') + ('a'..'z')).random()
-    val char5 = (('0'..'9') + ('a'..'z')).random()
-    val char6 = (('0'..'9') + ('a'..'z')).random()
+    val range = (('0'..'9') + ('a'..'z'))
+    val char1 = range.random()
+    val char2 = range.random()
+    val char3 = range.random()
+    val char4 = range.random()
+    val char5 = range.random()
+    val char6 = range.random()
 
     println(char1.toString() + char2 + char3 + char4 + char5 + char6)
 }
