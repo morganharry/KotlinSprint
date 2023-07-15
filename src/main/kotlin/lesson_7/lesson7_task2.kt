@@ -9,7 +9,7 @@ fun main() {
 
         val userCode = readln().toInt()
 
-        if (userCode == smsCode) println("Добро пожаловать.")
-        else println("Неверно.")
+        if (userCode != smsCode) println("Неверно.")
     } while (userCode != smsCode)
+    println("Добро пожаловать.")
 }
