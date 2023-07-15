@@ -10,5 +10,5 @@ fun main() {
     val char5 = rangeChar.random()
     val char6 = rangeInt.random()
 
-    println(char1.toString() + char2 + char3 + char4 + char5 + char6)
+    println("$char1$char2$char3$char4$char5$char6")
 }
