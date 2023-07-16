@@ -1,6 +1,5 @@
 package lesson_8
 
-
 fun main() {
     val ingredientsArray = arrayOf("соль", "сахар", "капуста", "лук", "масло", "лимон")
 
@@ -9,10 +8,12 @@ fun main() {
 
     var isIt = false
 
-    for (i in ingredientsArray.indices) {
-        if (userIngredient == ingredientsArray[i]) isIt = true
+    for (ingredient in ingredientsArray) {
+        if (userIngredient == ingredient) {
+            isIt = true
+            println("Ингредиент $userIngredient в рецепте есть")
+            break
+        }
     }
-
-    if (isIt) println("Ингредиент $userIngredient в рецепте есть")
-    else println("Такого ингредиента в рецепте нет")
+    if (!isIt) println("Такого ингредиента в рецепте нет")
 }
