@@ -1,18 +1,36 @@
 package lesson_10
 
-fun move(): Int {
-    val num = (1..6).random()
-    println("Результат: $num")
-    return num
+const val CORRECTION = 2
+
+fun diceRoll(): Int {
+    val num1 = (1..6).random()
+    val num2 = (1..6).random()
+    println("Результат: $num1 и $num2")
+    val sum = (num1 + num2)
+    val listOfNum = listOf(
+        "Два!",
+        "Три!",
+        "Четыре!",
+        "Пять!",
+        "Шесть!",
+        "Семь!",
+        "Восемь!",
+        "Девять!",
+        "Десять!",
+        "Одинадцать!",
+        "Двенадцать!",
+    )
+    println(listOfNum[sum - CORRECTION])
+    return (sum)
 }
 
 fun main() {
     println("Ход Игрока!")
-    val userNum = move()
+    val userNum = diceRoll()
     println()
 
     println("Ход Компьютера!")
-    val compNum = move()
+    val compNum = diceRoll()
     println()
 
     when {
