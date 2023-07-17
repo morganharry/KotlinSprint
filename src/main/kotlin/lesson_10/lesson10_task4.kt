@@ -1,14 +1,16 @@
 package lesson_10
 
-fun game(): Int {
+const val CORRECTION = 2
+
+fun play(): Int {
     var userNumWin = 0
     do {
         println("Ход Игрока!")
-        val userNum = move()
+        val userNum = diceRoll()
         println()
 
         println("Ход Компьютера!")
-        val compNum = move()
+        val compNum = diceRoll()
         println()
 
         when {
@@ -23,19 +25,35 @@ fun game(): Int {
         }
 
         print("Хотите бросить кости еще раз Введите Да или Нет ")
-        if (readln() == "Нет") break
+        if (readln().uppercase() == ("Нет").uppercase()) break
     } while (true)
     return userNumWin
 }
 
-fun move(): Int {
-    val num = (1..6).random()
-    println("Результат: $num")
-    return num
+fun diceRoll(): Int {
+    val num1 = (1..6).random()
+    val num2 = (1..6).random()
+    println("Результат: $num1 и $num2")
+    val sum = (num1 + num2)
+    val listOfNum = listOf(
+        "Два!",
+        "Три!",
+        "Четыре!",
+        "Пять!",
+        "Шесть!",
+        "Семь!",
+        "Восемь!",
+        "Девять!",
+        "Десять!",
+        "Одинадцать!",
+        "Двенадцать!"
+    )
+    println(listOfNum[sum - CORRECTION])
+    return (sum)
 }
 
 fun main() {
-    val userNumWin = game()
+    val userNumWin = play()
 
     println("Количество выйгрышных партий человека: $userNumWin")
 }
