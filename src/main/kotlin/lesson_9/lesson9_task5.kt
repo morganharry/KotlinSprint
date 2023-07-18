@@ -14,11 +14,9 @@ fun main() {
         } while (userIngredient in userIngredientList)
         userIngredientList.add(userIngredient)
     }
-    val sortedIngredientList = userIngredientList.sorted()
+    val sortedIngredientList: MutableList<String> = userIngredientList.sorted().toMutableList()
 
-
-    // sortedIngredientList[0].uppercase()
-
+    sortedIngredientList[0] = sortedIngredientList[0].replaceFirstChar {it.titlecase(Locale.getDefault())}
 
     println("${sortedIngredientList.joinToString(",")}.")
 }
