@@ -1,6 +1,25 @@
 package lesson_10
 
-const val CORRECTION = 2
+enum class Result(val value: Int, val num: String) {
+    TWO(2, "Два!"),
+    THREE(3, "Три!"),
+    FOUR(4, "Четыре!"),
+    FIVE(5, "Пять!"),
+    SIX(6, "Шесть!"),
+    SEVEN(7, "Семь!"),
+    EIGHT(8, "Восемь!"),
+    NINE(9, "Девять!"),
+    TEN(10, "Десять!"),
+    ELEVEN(11, "Одинадцать!"),
+    TWELVE(12, "Двенадцать!");
+}
+
+fun findByValue(value: Int): String {
+    for (enum in Result.values()) {
+        if (value == enum.value) return enum.num
+    }
+    return ""
+}
 
 fun play(): Int {
     var userNumWin = 0
@@ -35,20 +54,8 @@ fun diceRoll(): Int {
     val num2 = (1..6).random()
     println("Результат: $num1 и $num2")
     val sum = (num1 + num2)
-    val listOfNum = listOf(
-        "Два!",
-        "Три!",
-        "Четыре!",
-        "Пять!",
-        "Шесть!",
-        "Семь!",
-        "Восемь!",
-        "Девять!",
-        "Десять!",
-        "Одинадцать!",
-        "Двенадцать!"
-    )
-    println(listOfNum[sum - CORRECTION])
+
+    println(findByValue(sum))
     return (sum)
 }
 
