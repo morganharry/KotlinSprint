@@ -1,6 +1,6 @@
 package lesson_10
 
-const val MIN_LENGTH = 4
+const val LENGTH_MIN = 4
 
 fun createLogin(): String {
     var userLogin = ""
@@ -13,7 +13,7 @@ fun createLogin(): String {
     return userLogin
 }
 
-fun checkLoginLength(str: String) = if (str.length < MIN_LENGTH) {
+fun checkLoginLength(str: String) = if (str.length < LENGTH_MIN) {
     println("Логин недостаточно длинный (менее 4-ех символов)")
     true
 } else {
