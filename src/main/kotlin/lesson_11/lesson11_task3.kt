@@ -1,20 +1,14 @@
 package lesson_11
 
-class Rooms(
+class Room(
     val cover: String,
     val name: String,
-    val usersList: MutableSet<UsersCl>,
+    val usersList: Set <User>,
 ) {
-    fun roomView():String {
-        val loginsList = mutableListOf<String>()
-        usersList.forEach() {
-            loginsList.add(it.login)
-        }
-        return ("\t- обложка: $cover, название: $name, участники: ${loginsList.joinToString(",")}")
-    }
+    fun roomView():String =("\t- обложка: $cover, название: $name, участники: ${usersList.joinToString(",")}")
 }
 
-class UsersCl (
+class User (
     val login:String,
     var status:String = "микрофон выключен",
 ) {
@@ -26,16 +20,16 @@ class UsersCl (
 }
 
 fun main() {
-    val user1 = UsersCl("North1955", "пользователь заглушен")
-    val user2 = UsersCl("South_1313")
-    val user3 = UsersCl("WestTT")
-    val user4 = UsersCl("East777", "разговаривает")
+    val user1 = User("North1955", "пользователь заглушен")
+    val user2 = User("South_1313")
+    val user3 = User("WestTT")
+    val user4 = User("East777", "разговаривает")
 
-    val room1 = Rooms("Smile.jpg", "jokes", mutableSetOf<UsersCl>(user1, user3))
-    val room2 = Rooms("hockey.jpg", "NHL-2023", mutableSetOf<UsersCl>(user2, user3, user4))
-    val room3 = Rooms("film_reel.jpg", "cinema", mutableSetOf<UsersCl>(user1, user2, user3, user4))
+    val room1 = Room("Smile.jpg", "jokes", setOf<User>(user1, user3))
+    val room2 = Room("hockey.jpg", "NHL-2023", setOf<User>(user2, user3, user4))
+    val room3 = Room("film_reel.jpg", "cinema", setOf<User>(user1, user2, user3, user4))
 
-    val listOfRooms = mutableSetOf<Rooms>(room1, room2, room3)
+    val listOfRooms = mutableSetOf<Room>(room1, room2, room3)
 
     println("Список комнат:")
     for (room in listOfRooms) println(room.roomView())
