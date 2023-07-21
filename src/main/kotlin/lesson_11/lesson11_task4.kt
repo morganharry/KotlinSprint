@@ -39,5 +39,6 @@ fun main() {
         "8 (999) 888-42-42",
         "mail@mail.ru",
     )
+
     contact1.contactView()
 }
