@@ -2,7 +2,7 @@ package lesson_10
 
 const val CORRECTION = 2
 
-fun diceRoll(): Int {
+fun rollDice(): Int {
     val num1 = (1..6).random()
     val num2 = (1..6).random()
     println("Результат: $num1 и $num2")
@@ -26,11 +26,11 @@ fun diceRoll(): Int {
 
 fun main() {
     println("Ход Игрока!")
-    val userNum = diceRoll()
+    val userNum = rollDice()
     println()
 
     println("Ход Компьютера!")
-    val compNum = diceRoll()
+    val compNum = rollDice()
     println()
 
     when {

@@ -1,7 +1,6 @@
 package lesson_10
 
-const val MIN_LENGTH:Int = 4
-
+const val MIN_LENGTH = 4
 fun checkLoginAndPasswordLength(str: String) = if (str.length < MIN_LENGTH) {
     println("Логин или пароль недостаточно длинные")
     true
