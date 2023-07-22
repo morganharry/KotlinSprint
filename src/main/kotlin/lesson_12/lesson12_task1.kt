@@ -1,6 +1,6 @@
 package lesson_12
 
-class WeatherInfo(
+class InfoWeather(
     var dayTemp: Int,
     var nightTemp: Int,
     var wasItRaining: Boolean = false,
@@ -13,7 +13,7 @@ class WeatherInfo(
 }
 
 fun main() {
-    val day1 = WeatherInfo(41, 25, atmospherePressure = 755)
-    val day2 = WeatherInfo(31, 27, true, 754)
-    val day3 = WeatherInfo(37, 22, atmospherePressure = 755)
+    val day1 = InfoWeather(41, 25, atmospherePressure = 755)
+    val day2 = InfoWeather(31, 27, true, 754)
+    val day3 = InfoWeather(37, 22, atmospherePressure = 755)
 }
