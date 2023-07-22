@@ -20,5 +20,5 @@ fun main() {
     day2.weatherView()
 
     val day3 = WeatherInfo(37, 22, true, 753)
-    day1.weatherView()
+    day3.weatherView()
 }
