@@ -7,7 +7,7 @@ class WeatherInf(_dayTemp: Int, _nightTemp: Int, _wasItRaining: Boolean, _atmosp
     var atmospherePressure = _atmospherePressure
 
     fun weatherView() {
-        println("Дневная тепература: $dayTemp°\nНочная температура: $nightTemp°\nОсадки: $wasItRaining\nАтм. давление: $atmospherePressure мм рт. ст.")
+        println("Дневная температура: $dayTemp°\nНочная температура: $nightTemp°\nОсадки: $wasItRaining\nАтм. давление: $atmospherePressure мм рт. ст.")
         println()
     }
 }
