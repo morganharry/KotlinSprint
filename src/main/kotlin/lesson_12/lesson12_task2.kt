@@ -1,6 +1,6 @@
 package lesson_12
 
-class WeatherInf(_dayTemp: Int, _nightTemp: Int, _wasItRaining: Boolean, _atmospherePressure: Int) {
+class WeatherInf (_dayTemp: Int, _nightTemp: Int, _wasItRaining: Boolean, _atmospherePressure: Int) {
     var dayTemp = _dayTemp
     var nightTemp = _nightTemp
     var wasItRaining = _wasItRaining
