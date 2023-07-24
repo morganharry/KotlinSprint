@@ -7,7 +7,7 @@ class InfoWeather(
     var atmospherePressure: Int
 ) {
     init {
-        println("Дневная тепература: $dayTemp°\nНочная температура: $nightTemp°\nОсадки: $wasItRaining\nАтм. давление: $atmospherePressure мм рт. ст.")
+        println("Дневная температура: $dayTemp°\nНочная температура: $nightTemp°\nОсадки: $wasItRaining\nАтм. давление: $atmospherePressure мм рт. ст.")
         println()
     }
 }
