@@ -8,11 +8,13 @@ abstract class Figure(
 ) {
     open fun countPerimeter():Int  {
         val perimeter = 0
+        println(perimeter)
         return perimeter
     }
 
     open fun countSquare():Int  {
         val square = 0
+        println(square)
         return square
     }
 }
@@ -68,9 +70,9 @@ class Triangle(
 fun main() {
     val circle1 = Circle("red", 10)
     val circle2 = Circle("red", 20)
-    val rectangle1 = Rectangle("green", 10, 20)
+    val rectangle1 = Rectangle("red", 10, 20)
     val rectangle2 = Rectangle("red", 25, 35)
-    val triangle1 = Triangle("red", 6, 8, 10)
+    val triangle1 = Triangle("green", 6, 8, 10)
     val triangle2 = Triangle("red", 12, 16, 20)
     val listOfFigure = mutableListOf<Figure>()
 
@@ -80,6 +82,7 @@ fun main() {
     listOfFigure.add(rectangle2)
     listOfFigure.add(triangle1)
     listOfFigure.add(triangle2)
+    println (listOfFigure.map { it.color }.joinToString(", "))
 
     print("Выберите цвет фигур для расчета периметра (red/black/green): ")
     val colorForPer = readln()
@@ -96,7 +99,10 @@ fun main() {
 
 fun countAllFigWithColor (color:String, list:MutableList<Figure>, per:Boolean):Int {
     var sumAllFig = 0
-    if (per) for (figure in list) if(figure.color == color) sumAllFig += figure.countPerimeter()
-    else for (figure in list) if(figure.color == color) sumAllFig += figure.countSquare()
+    for (figure in list) {
+        if (figure.color == color)
+            if (per) sumAllFig += figure.countPerimeter()
+            else sumAllFig += figure.countSquare()
+    }
     return sumAllFig
 }
