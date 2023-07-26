@@ -1,6 +1,6 @@
 package lesson_14
 
-class Ship(
+open class Ship(
     val name: String,
     val speed: Int,
     val capacity: Int,
@@ -12,6 +12,22 @@ class Ship(
     fun showCapacity() {
         println("Груза на корабле $name: $capacity")
     }
+}
+
+class Cargo(
+    name: String,
+    speed: Int,
+    capacity: Int,
+) : Ship(name, speed, capacity) {
+}
+
+class Icebreakers(
+    name: String,
+    speed: Int,
+    capacity: Int,
+    var fuelLevel: Int,
+) : Ship(name, speed, capacity) {
+
 }
 
 fun main() {
