@@ -30,7 +30,7 @@ fun addContact(list: MutableList<ContactByPhone>): MutableList<ContactByPhone> {
         }
         println()
         println("Если хотите добавить новую запись, введите \"да\"")
-        if (!readln().equals("да")) break
+        if (!readln().equals("да", true)) break
     } while (true)
     return list
 }
