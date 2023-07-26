@@ -21,7 +21,7 @@ fun main() {
     print("Введите данные по температуре: ")
     val temperature = MessageTemperature(readln().toInt())
     temperature.sendMessage()
-
+    println()
     print("Введите данные по осадкам: ")
     val precipitation = MessagePrecipitation(readln().toInt())
     precipitation.sendMessage()
