@@ -38,7 +38,6 @@ class Satellite(
     atmosphere: Boolean = false,
     water: Boolean = false,
     landing: Boolean = false,
-    //val planet: Planet = Planet()
 ) : AstronomicalObject(name, habitable, atmosphere, water, landing) {
 }
 
