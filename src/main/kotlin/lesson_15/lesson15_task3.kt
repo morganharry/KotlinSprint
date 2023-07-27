@@ -1,30 +1,33 @@
 package lesson_15
 
 abstract class User {
-    abstract val name:String
+    abstract val name: String
     abstract fun readMessage()
     abstract fun writeMessage()
 
 }
 
-class UserStandart (override val name:String):User() {
-    override fun readMessage () {
+class UserStandart(override val name: String) : User() {
+    override fun readMessage() {
         println("Юзер $name читает сообщение.")
     }
-    override fun writeMessage () {
+
+    override fun writeMessage() {
         println("Юзер $name пишет сообщение.")
     }
 }
 
-class UserAdmin (override val  name:String):User() {
-    override fun readMessage () {
+class UserAdmin(override val name: String) : User() {
+    override fun readMessage() {
         println("Юзер $name читает сообщение.")
     }
-    override fun writeMessage () {
+
+    override fun writeMessage() {
         println("Юзер $name пишет сообщение.")
     }
-    fun deleteMessage () {
-    println("Юзер $name удаляет сообщение.")
+
+    fun deleteMessage() {
+        println("Юзер $name удаляет сообщение.")
     }
 }
 
