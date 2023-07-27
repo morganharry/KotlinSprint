@@ -1,22 +1,24 @@
 package lesson_15
 
 interface Searching {
-    fun search () {}
+    fun search() {}
 }
 
-abstract class Goods (val name: String, val number: Int) {
-}
-class MusicalInstrument (
-    name:String,
-    number:Int,
-    val listOfAccessories: MutableList<Accessor> = mutableListOf<Accessor>()) :Goods (name, number), Searching {
-        override fun search () {
-            println ("Для инстурмента $name у нас есть:")
-            println(listOfAccessories.map { it.name }.joinToString(", "))
-        }
+abstract class Goods(val name: String, val number: Int) {
 }
 
-class Accessor (name:String, number:Int, val instrument: MusicalInstrument) :Goods (name, number) {
+class MusicalInstrument(
+    name: String,
+    number: Int,
+    val listOfAccessories: MutableList<Accessor> = mutableListOf<Accessor>()
+) : Goods(name, number), Searching {
+    override fun search() {
+        println("Для инстурмента $name у нас есть:")
+        println(listOfAccessories.map { it.name }.joinToString(", "))
+    }
+}
+
+class Accessor(name: String, number: Int, val instrument: MusicalInstrument) : Goods(name, number) {
 }
 
 fun main() {
@@ -34,11 +36,13 @@ fun main() {
 
     listOfInstruments = addAccessor(listOfAccessories, listOfInstruments)
 
-    searchForUser (listOfInstruments)
+    searchForUser(listOfInstruments)
 }
 
-fun addAccessor (listOfAccessories: MutableList<Accessor> , listOfInstruments: MutableList<MusicalInstrument> ) : MutableList<MusicalInstrument>
-{
+fun addAccessor(
+    listOfAccessories: MutableList<Accessor>,
+    listOfInstruments: MutableList<MusicalInstrument>
+): MutableList<MusicalInstrument> {
     for (instrument in listOfInstruments) {
         for (accessor in listOfAccessories)
             if (instrument == accessor.instrument)
@@ -47,7 +51,7 @@ fun addAccessor (listOfAccessories: MutableList<Accessor> , listOfInstruments: M
     return listOfInstruments
 }
 
-fun searchForUser (listOfInstruments: MutableList<MusicalInstrument>) {
+fun searchForUser(listOfInstruments: MutableList<MusicalInstrument>) {
     println("Для какого инструмента вы хотите найти аксессуар?")
     println("У нас есть: ${listOfInstruments.map { it.name }.joinToString(", ")}")
     val instrumentFromUser = readln()
