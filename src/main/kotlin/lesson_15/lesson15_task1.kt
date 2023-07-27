@@ -1,50 +1,50 @@
 package lesson_15
 
 interface MovementOutOfWater {
-    fun swimOnWater () {
+    fun swimOnWater() {
         println("Плывет по воде.")
     }
 
-    fun fly () {
+    fun fly() {
         println("Летит.")
     }
 
-    fun sit () {
+    fun sit() {
         println("Сидит.")
     }
 
-    fun run () {
+    fun run() {
         println("Бежит.")
     }
 }
 
-interface MovementInWater  {
-    fun swimUnderWater () {
+interface MovementInWater {
+    fun swimUnderWater() {
         println("Плывет под водой.")
     }
 
-    fun dive () {
+    fun dive() {
         println("Ныряет.")
     }
 }
 
-abstract class Organism  {
-    abstract val name:String
+abstract class Organism {
+    abstract val name: String
 }
 
-class Duck (override val name: String):Organism() , MovementOutOfWater, MovementInWater {
+class Duck(override val name: String) : Organism(), MovementOutOfWater, MovementInWater {
 }
 
-class Gull (override val name: String):Organism() , MovementOutOfWater {
+class Gull(override val name: String) : Organism(), MovementOutOfWater {
 }
 
-class Carp (override val name: String):Organism() , MovementInWater {
+class Carp(override val name: String) : Organism(), MovementInWater {
 }
 
 fun main() {
-    val duck1 = Duck ("Утка")
-    val gull1 = Gull ("Чайка")
-    val carp1 = Carp ("Карась")
+    val duck1 = Duck("Утка")
+    val gull1 = Gull("Чайка")
+    val carp1 = Carp("Карась")
 
     println(duck1.name)
     duck1.swimOnWater()
