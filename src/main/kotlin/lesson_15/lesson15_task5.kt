@@ -6,66 +6,63 @@ const val MAX_OF_PASS_TRUCK = 1
 const val MAX_OF_PASS_CAR = 3
 const val MAX_OF_GOODS_TRUCK = 2
 
-interface Movement {
-    fun move() {
-        println("Транспорт передвигается.")
-    }
+const val CORR_TO_NUM = 1
+
+interface Moving {
+    fun move()
 }
 
-interface TransportationOfPassengers {
-    fun transportOfPassengers() {
-    }
+interface TransportationOfPass {
+    fun transportOfPass(num: Int)
 }
 
 interface TransportationOfGoods {
-    fun transportOfGoods() {}
+    fun transportOfGoods(num: Int)
 }
 
 abstract class Transport(
     val name: String,
-    var isMove: Boolean = false,
+    var isMove: Boolean,
     var numOfPass: Int,
-) {
+)
 
-}
-
-class Truck(name: String, isMove: Boolean, numOfPass: Int, var numOfGoods: Int) : Transport(name, isMove, numOfPass),
-    Movement,
-    TransportationOfGoods {
-
+class Truck(name: String, isMove: Boolean = false, numOfPass: Int, var numOfGoods: Int) :
+    Transport(name, isMove, numOfPass), Moving, TransportationOfPass, TransportationOfGoods {
     override fun move() {
         isMove = true
-        println("Транспорт $name выехал.")
+        println("Транспорт $name выехал: ")
+    }
+
+    override fun transportOfPass(_numOfPass: Int) {
+        numOfPass = _numOfPass
+        println("- везёт $numOfPass чел.")
+        println()
     }
 
     override fun transportOfGoods(_numOfGoods: Int) {
         numOfGoods = _numOfGoods
-        println("Транспорт $name везёт $numOfGoods тонн груза.")
-    }
-
-    override fun transportOfPassengers(_numOfPass: Int) {
-        numOfPass = _numOfPass
-        println("Транспорт $name везёт $numOfPass человек.")
+        println("- везёт ${numOfGoods}т груза$")
     }
 }
 
-
-class Car(name: String, isMove: Boolean, numOfPass: Int) : Transport(name, isMove, numOfPass), Movement,
-    TransportationOfPassengers {
+class Car(name: String, isMove: Boolean = false, numOfPass: Int) : Transport(name, isMove, numOfPass), Moving,
+    TransportationOfPass {
     override fun move() {
         isMove = true
-        println("Транспорт $name выехал.")
+        println("Транспорт $name выехал: ")
     }
 
-    override fun transportOfPassengers(_numOfPass: Int) {
+    override fun transportOfPass(_numOfPass: Int) {
         numOfPass = _numOfPass
-        println("Транспорт $name везёт $numOfPass человек.")
+        println("- везёт $numOfPass чел.")
+        println()
     }
 }
 
 fun main() {
     val listUserTrucks = getTrucks()
     val listUserCars = getCars()
+
     val maxPass = listUserTrucks.size * MAX_OF_PASS_TRUCK + listUserCars.size * MAX_OF_PASS_CAR
     val maxGoods = listUserTrucks.size * MAX_OF_GOODS_TRUCK
 
@@ -80,15 +77,15 @@ fun carryTruck(userPass: Int, userGoods: Int, listUserTrucks: MutableList<Truck>
     var count = 0
     var userGoodsCount = userGoods
     var userPassCount = userPass
+
     while (userGoodsCount > 0) {
         listUserTrucks[count].move()
         listUserTrucks[count].transportOfGoods(min(userGoodsCount, MAX_OF_GOODS_TRUCK))
         userGoodsCount = userGoodsCount - MAX_OF_GOODS_TRUCK
-
         if (userPassCount > 0) {
-            listUserTrucks[count].transportOfPassengers(min(userPassCount, MAX_OF_PASS_TRUCK))
+            listUserTrucks[count].transportOfPass(min(userPassCount, MAX_OF_PASS_TRUCK))
             userPassCount = userPassCount - MAX_OF_PASS_TRUCK
-        } else listUserTrucks[count].transportOfPassengers(0)
+        } else listUserTrucks[count].transportOfPass(0)
         count++
     }
     return userPassCount
@@ -97,18 +94,18 @@ fun carryTruck(userPass: Int, userGoods: Int, listUserTrucks: MutableList<Truck>
 fun carryCar(userPassForCar: Int, listUserCars: MutableList<Car>) {
     var count = 0
     var userPassCount = userPassForCar
+
     while (userPassCount > 0) {
         listUserCars[count].move()
-        listUserCars[count].transportOfPassengers(min(userPassCount, MAX_OF_PASS_CAR))
+        listUserCars[count].transportOfPass(min(userPassCount, MAX_OF_PASS_CAR))
         userPassCount = userPassCount - MAX_OF_PASS_CAR
+        count++
     }
-    count++
 }
-}
-
 
 fun getPass(maxPass: Int): Int {
     var userPass = 0
+
     do {
         print("Введите количество человек, которое вы хотите перевезти, но не более $maxPass: ")
         userPass = readln().toInt()
@@ -120,8 +117,9 @@ fun getPass(maxPass: Int): Int {
 
 fun getGoods(maxGoods: Int): Int {
     var userGoods = 0
+
     do {
-        print("Введите количчество тон груза,которое вы хотите перевезти: , но не более $maxGoods: ")
+        print("Введите количчество тон груза,которое вы хотите перевезти, но не более $maxGoods: ")
         userGoods = readln().toInt()
         if (userGoods > maxGoods) println("К сожалению, компания может перевезти максиум $maxGoods тон груза.")
         else break
@@ -131,22 +129,24 @@ fun getGoods(maxGoods: Int): Int {
 
 fun getTrucks(): MutableList<Truck> {
     val listTrucks = mutableListOf<Truck>()
+
     print("Введите количество имеющихся грузовиков: ")
     val userTrucks = readln().toInt()
+
     repeat(userTrucks) {
-        val num = it.toString()
-        listTrucks.add(Truck("truck_#$num", 0, 0))
+        listTrucks.add(Truck("truck_#${CORR_TO_NUM + it}", numOfPass = 0, numOfGoods = 0))
     }
     return listTrucks
 }
 
 fun getCars(): MutableList<Car> {
     val listCars = mutableListOf<Car>()
+
     print("Введите количество имеющихся машин: ")
     val userCars = readln().toInt()
+
     repeat(userCars) {
-        val num = it.toString()
-        listCars.add(Car("car_#$num", 0))
+        listCars.add(Car("car_#${CORR_TO_NUM + it}", numOfPass = 0))
     }
     return listCars
 }
