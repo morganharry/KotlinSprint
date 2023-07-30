@@ -6,10 +6,11 @@ class Quiz {
     var answer: String = "Пенициллин"
         get() = field
         set(value) {
-            if (field == value) isTrue = true
+            if (value.equals(field, true)) isTrue = true
         }
     var isTrue = false
 }
+
 
 fun main() {
     val quiz1 = Quiz()
