@@ -6,10 +6,15 @@ class Quiz {
     var answer: String = "Пенициллин"
         get() = field
         set(value) {
-            field = value
+            if (field == value) isTrue = true
         }
+    var isTrue = false
 }
 
 fun main() {
     val quiz1 = Quiz()
+    println(quiz1.question)
+    quiz1.answer = readln()
+    println("Ваш ответ: ${quiz1.isTrue}")
+    println("Правильный ответ: ${quiz1.answer}")
 }
