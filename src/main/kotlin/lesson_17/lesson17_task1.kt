@@ -1,16 +1,18 @@
 package lesson_17
 
-class Quiz {
-    val question: String = "Что было создано благодаря грибам-плесени?"
+class Quiz(
+    _question: String = "Что было создано благодаря грибам-плесени?",
+    _answer: String = "Пенициллин",
+    var isTrue: Boolean = false
+) {
+    val question: String = _question
         get() = field
-    var answer: String = "Пенициллин"
+    var answer: String = _answer
         get() = field
         set(value) {
             if (value.equals(field, true)) isTrue = true
         }
-    var isTrue = false
 }
-
 
 fun main() {
     val quiz1 = Quiz()
