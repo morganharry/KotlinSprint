@@ -30,7 +30,7 @@ class Player(val name: String, private var health: Int, var power: Int) {
         else recovery()
     }
 
-    fun death() {
+    private fun death() {
         health = 0
         power = 0
         println("$name падает на ринг и не может встать!")
