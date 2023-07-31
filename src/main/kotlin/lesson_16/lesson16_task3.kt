@@ -16,6 +16,5 @@ fun main() {
             break
         } else println("Увы.")
         print("Еще одна попытка? (да/нет): ")
-        if (!readln().equals("да", true)) break
-    } while (true)
+    } while (readln().equals("да", true))
 }
