@@ -1,7 +1,7 @@
 package lesson_18
 
-open class Order() {
-    open fun getOrder() = ""
+abstract class Order() {
+    abstract fun getOrder(): String
 }
 
 class OnceOrder(val num: Int, private val order: String) : Order() {
