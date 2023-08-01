@@ -1,7 +1,7 @@
 package lesson_18
 
-open class Pet(var name: String) {
-    open fun eat() {}
+abstract class Pet(var name: String) {
+    abstract fun eat()
     fun play() {
         println("$name - играет.")
     }
