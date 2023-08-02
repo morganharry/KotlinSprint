@@ -18,6 +18,7 @@ class SpaceShip(val name: String) {
 
 fun main() {
     val ship1 = SpaceShip("Сокол")
+
     ship1.takeOff()
     ship1.land()
     ship1.fire()
