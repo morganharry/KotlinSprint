@@ -23,7 +23,6 @@ enum class Fish {
             return "Петушок"
         }
     };
-
     abstract fun getNameInRus(): String
 }
 
