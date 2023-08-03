@@ -1,28 +1,14 @@
 package lesson_19
 
-enum class Category() {
-    CLOTHES {
-        override fun getNameInRus(): String {
-            return "Одежда"
-        }
-    },
-    STATIONERY {
-        override fun getNameInRus(): String {
-            return "Канцелярские товары"
-        }
-    },
-    MISCELLANEOUS {
-        override fun getNameInRus(): String {
-            return "Разное"
-        }
-    };
-
-    abstract fun getNameInRus(): String
+enum class Category(val nameCat: String) {
+    CLOTHES("Одежда"),
+    STATIONERY("Канцелярские товары"),
+    MISCELLANEOUS("Разное")
 }
 
 class Product(val name: String, val id: Int, val category: Category) {
     fun getInfoAbout() {
-        println("Товар №$id - $name из категории \"${category.getNameInRus()}\"")
+        println("Товар №$id - $name из категории \"${category.nameCat}\"")
     }
 }
 
