@@ -32,6 +32,7 @@ class Tank(val id: Int, var ammo: Ammo) {
 
 fun main() {
     val tank1 = Tank(42, Ammo.BLUE)
+
     tank1.fire()
     tank1.changeAmmo()
     tank1.fire()
