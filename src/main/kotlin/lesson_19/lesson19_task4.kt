@@ -12,10 +12,11 @@ class Tank(val id: Int, var ammo: Ammo) {
             println("Доступные варианты патронов:")
             for (ammo in Ammo.values()) println("- \"${ammo.color}\" (урон: ${ammo.damage})")
             print("Введите выбранный тип: ")
-            when (readln()) {
-                "Синий" -> ammo = Ammo.BLUE
-                "Зелёный" -> ammo = Ammo.GREEN
-                "Красный" -> ammo = Ammo.RED
+            val userChoose = readln()
+            when {
+                userChoose.equals(Ammo.BLUE.color, true) -> ammo = Ammo.BLUE
+                userChoose.equals(Ammo.GREEN.color, true) -> ammo = Ammo.GREEN
+                userChoose.equals(Ammo.RED.color, true) -> ammo = Ammo.RED
                 else -> println("Указан некорректный тип.")
             }
             println("Заряжен патрон типа: \"${ammo.color}\" (урон: ${ammo.damage}).")
