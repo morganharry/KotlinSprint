@@ -1,6 +1,6 @@
 package lesson_19
 
-enum class Category(val nameCat: String) {
+enum class Category(val nameCategory: String) {
     CLOTHES("Одежда"),
     STATIONERY("Канцелярские товары"),
     MISCELLANEOUS("Разное")
@@ -8,7 +8,7 @@ enum class Category(val nameCat: String) {
 
 class Product(val name: String, val id: Int, val category: Category) {
     fun getInfoAbout() {
-        println("Товар №$id - $name из категории \"${category.nameCat}\"")
+        println("Товар №$id - $name из категории \"${category.nameCategory}\"")
     }
 }
 
