@@ -2,5 +2,5 @@ package lesson_20
 
 
 fun main() {
-    run { println("С наступающим Новым Годом, ${readln()}!") }
+    val outputСongratulation = { it: String -> println("С наступающим Новым Годом, $it!") }(readln())
 }
