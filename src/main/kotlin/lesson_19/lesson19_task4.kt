@@ -6,19 +6,22 @@ enum class Ammo(val damage: Int, val color: String) {
     RED(20, "Красный"),
 }
 
-class Tank(val id: Int, var ammo: Ammo) {
+class Tank(val id: Int, var ammo: Ammo, var isLoaded: Boolean = false) {
     fun changeAmmo() {
         do {
             println("Доступные варианты патронов:")
             for (ammo in Ammo.values()) println("- \"${ammo.color}\" (урон: ${ammo.damage})")
             print("Введите выбранный тип: ")
             val userChoose = readln()
-
+            isLoaded = true
             when {
                 userChoose.equals(Ammo.BLUE.color, true) -> ammo = Ammo.BLUE
                 userChoose.equals(Ammo.GREEN.color, true) -> ammo = Ammo.GREEN
                 userChoose.equals(Ammo.RED.color, true) -> ammo = Ammo.RED
-                else -> println("Указан некорректный тип.")
+                else -> {
+                    println("Указан некорректный тип.")
+                    isLoaded = false
+                }
             }
 
             println("Заряжен патрон типа: \"${ammo.color}\" (урон: ${ammo.damage}).")
@@ -27,8 +30,12 @@ class Tank(val id: Int, var ammo: Ammo) {
     }
 
     fun fire() {
-        println("Произведен выстрел патроном типа \"${ammo.color}\".")
-        println("Урон: ${ammo.damage}!")
+        if (isLoaded == false) println("Нет патрона!")
+        else {
+            println("Произведен выстрел патроном типа \"${ammo.color}\".")
+            println("Урон: ${ammo.damage}!")
+            isLoaded = false
+        }
     }
 }
 
@@ -37,5 +44,6 @@ fun main() {
 
     tank1.fire()
     tank1.changeAmmo()
+    tank1.fire()
     tank1.fire()
 }
