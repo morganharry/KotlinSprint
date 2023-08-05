@@ -6,8 +6,7 @@ fun main() {
     val player1 = Player("Larry")
     println("Игрок перед закрытой дверью.")
     val checkKey =
-        { it: Player -> if (it.doesHeHaveAKey == true) println("Дверь открыта!") else println("Дверь заперта!") }
-    (player1)
+        { it: Player -> if (it.doesHeHaveAKey) println("Дверь открыта!") else println("Дверь заперта!") }
     checkKey(player1)
     println("Игрок волшебный образом находит ключ.")
     player1.doesHeHaveAKey = true
