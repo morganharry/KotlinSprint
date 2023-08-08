@@ -1,3 +1,4 @@
+/*
 package lesson_11
 
 class RoomOfUser(
@@ -38,4 +39,4 @@ fun main() {
 
     print("Вы нажали на аватар ${user4.login}: ")
     user4.pushOnTheAvatar()
-}
+}*/
